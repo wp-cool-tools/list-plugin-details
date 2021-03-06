@@ -23,6 +23,14 @@ Activate the plugin, enter the API key and check the settings page.
 
 == Frequently Asked Questions ==
 
+= How can I add the list to my page? =
+
+Just add the shortcode [wpo_plugin_showcase] to your page or post.
+
+= Is the showcase ready for Gutenberg? =
+
+Yes, you can use the shortcode [wpo_plugin_showcase] within Gutenberg.
+
 = Do I have to be a plugin author? =
 
 No. List Plugin Information just the official an public details of any given plugin.
