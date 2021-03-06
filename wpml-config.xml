@@ -1,0 +1,10 @@
+<wpml-config>
+    <admin-texts>
+        <key name="lpi_settings">
+            <key name="lpi-block-headline" />
+            <key name="lpi-block-total" />
+            <key name="lpi-retrieve-version-label" />
+            <key name="lpi-retrieve-tested-label" />
+        </key>
+    </admin-texts>
+</wpml-config>
