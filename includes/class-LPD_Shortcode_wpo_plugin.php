@@ -1,11 +1,11 @@
 <?php
 /**
- * class-LPI_Shortcode_wpo_plugin.php
+ * class-LPD_Shortcode_wpo_plugin.php
  *
  * @author      Sandro Lucifora
  * @copyright   (c) 2021, Kybernetik Services
  * @link        https://www.kybernetik-services.com
- * @package     ListPluginInformation
+ * @package     ListPluginDetails
  * @since       1.0.0
  */
 
@@ -13,20 +13,20 @@
 if ( ! defined( 'ABSPATH' ) )
     exit;
 
-class LPI_Shortcode_wpo_plugin {
+class LPD_Shortcode_wpo_plugin {
 
     /**
      * A dummy constructor to prevent from being loaded more than once.
      *
      * @since 1.0.0
-     * @see LPI_Shortcode_wpo_plugin::instance()
+     * @see LPD_Shortcode_wpo_plugin::instance()
      */
     private function __construct() { /* Do nothing here */ }
 
     /**
-     * Main LPI_Shortcode Instance.
+     * Main LPD_Shortcode Instance.
      *
-     * Insures that only one instance of LPI_Shortcode exists in memory at any
+     * Insures that only one instance of LPD_Shortcode exists in memory at any
      * one time. Also prevents needing to define globals all over the place.
      *
      * @since 1.0.0
@@ -34,14 +34,14 @@ class LPI_Shortcode_wpo_plugin {
      * @static object $instance
      *
      */
-    public static function instance(): ?LPI_Shortcode_wpo_plugin {
+    public static function instance(): ?LPD_Shortcode_wpo_plugin {
 
         // Store the instance locally to avoid private static replication.
         static $instance = null;
 
         // Only run these methods if they haven't been run previously.
         if ( null === $instance ) {
-            $instance = new LPI_Shortcode_wpo_plugin;
+            $instance = new LPD_Shortcode_wpo_plugin;
             $instance->init();
         }
 
@@ -64,10 +64,10 @@ class LPI_Shortcode_wpo_plugin {
                                  'bar' => 'something else',
                              ), $atts );
 
-        $data = new LPI_Retrieve_Data();
+        $data = new LPD_Retrieve_Data();
         ob_start();
 
-        lpi_get_template( 'wpo-showcase.php', array( 'data' => $data ) );
+        lpd_get_template( 'wpo-showcase.php', array( 'data' => $data ) );
 
         return ob_get_clean();
 

@@ -1,11 +1,11 @@
 <?php
 /**
- * class-LPI_Template.php
+ * class-LPD_Template.php
  *
  * @author      Sandro Lucifora
  * @copyright   (c) 2021, Kybernetik Services
  * @link        https://www.kybernetik-services.com
- * @package     ListPluginInformation
+ * @package     ListPluginDetails
  * @since       1.0.0
  */
 
@@ -13,7 +13,7 @@
 if ( ! defined( 'ABSPATH' ) )
     exit;
 
-class LPI_Template {
+class LPD_Template {
 
     /**
      * locate_template()
@@ -25,15 +25,15 @@ class LPI_Template {
      *
      *  /wp-content/themes/  theme (child) / $template_name
      *
-     *	/wp-content/themes/  theme (child) / LPI_DOMAIN (e.g. list-plugin-information) / $template_name
+     *	/wp-content/themes/  theme (child) / LPD_DOMAIN (e.g. list-plugin-details) / $template_name
      *
      *  /wp-content/themes/  theme (parent) / $template_name
      *
-     *	/wp-content/themes/  theme (parent) / LPI_DOMAIN (e.g. list-plugin-information) / $template_name
+     *	/wp-content/themes/  theme (parent) / LPD_DOMAIN (e.g. list-plugin-details) / $template_name
      *
      *  $template_path (custom path from addon for example) / $template_name
      *
-     *  /wp-content/plugins/  LPI_DOMAIN (e.g. list-plugin-information) / templates / $template_name
+     *  /wp-content/plugins/  LPD_DOMAIN (e.g. list-plugin-details) / templates / $template_name
      *
      * @param string|array $template_names Template name (incl. file extension like .php)
      * @param string $template_path Custom template path for plugins and addons (default: '')
@@ -41,7 +41,7 @@ class LPI_Template {
      * @uses trailingslashit()
      * @uses get_stylesheet_directory()
      * @uses get_template_directory()
-     * @uses lpi_get_templates_dir()
+     * @uses lpd_get_templates_dir()
      * @return string $located Absolute path to template file (if $load is false)
      *
      * @since 1.0.0
@@ -71,8 +71,8 @@ class LPI_Template {
                 break;
 
                 // Check extra folder in child theme
-            } elseif ( file_exists( trailingslashit( get_stylesheet_directory() . '/' . LPI_DOMAIN ) . $template_name ) ) {
-                $located = trailingslashit( get_stylesheet_directory() . '/' . LPI_DOMAIN ) . $template_name;
+            } elseif ( file_exists( trailingslashit( get_stylesheet_directory() . '/' . LPD_DOMAIN ) . $template_name ) ) {
+                $located = trailingslashit( get_stylesheet_directory() . '/' . LPD_DOMAIN ) . $template_name;
                 break;
 
                 // Check parent theme
@@ -81,8 +81,8 @@ class LPI_Template {
                 break;
 
                 // Check extra folder parent theme
-            } elseif ( file_exists( trailingslashit( get_template_directory() . '/' . LPI_DOMAIN ) . $template_name ) ) {
-                $located = trailingslashit( get_template_directory() . '/' . LPI_DOMAIN ) . $template_name;
+            } elseif ( file_exists( trailingslashit( get_template_directory() . '/' . LPD_DOMAIN ) . $template_name ) ) {
+                $located = trailingslashit( get_template_directory() . '/' . LPD_DOMAIN ) . $template_name;
                 break;
 
                 // Check custom path templates (e.g. from addons)
@@ -91,14 +91,14 @@ class LPI_Template {
                 break;
 
                 // Check plugin templates
-            } elseif ( file_exists( trailingslashit( lpi_get_templates_dir() ) . $template_name ) ) {
-                $located = trailingslashit( lpi_get_templates_dir() ) . $template_name;
+            } elseif ( file_exists( trailingslashit( lpd_get_templates_dir() ) . $template_name ) ) {
+                $located = trailingslashit( lpd_get_templates_dir() ) . $template_name;
                 break;
             }
 
         }
 
-        $located = apply_filters( 'lpi_locate_template', $located, $template_names, $template_path, $load, $require_once );
+        $located = apply_filters( 'lpd_locate_template', $located, $template_names, $template_path, $load, $require_once );
 
         // Load found template if required
 
@@ -132,7 +132,7 @@ class LPI_Template {
     public static function get_template_part( $slug, $name = null, $args = array(), $template_path = '', $load = true, $require_once = false ): string {
 
         // Execute code for this part
-        do_action( 'lpi_get_template_part_' . $slug, $slug, $name, $args, $template_path, $load, $require_once );
+        do_action( 'lpd_get_template_part_' . $slug, $slug, $name, $args, $template_path, $load, $require_once );
 
         // Setup possible parts
         $templates = array();
@@ -141,7 +141,7 @@ class LPI_Template {
         $templates[] = $slug . '.php';
 
         // Allow template parts to be filtered
-        $templates = apply_filters( 'lpi_get_template_part', $templates, $slug, $name, $args, $template_path, $load, $require_once );
+        $templates = apply_filters( 'lpd_get_template_part', $templates, $slug, $name, $args, $template_path, $load, $require_once );
 
         // Return the part that is found
         return self::locate_template( $templates, $args, $template_path, $load, $require_once );

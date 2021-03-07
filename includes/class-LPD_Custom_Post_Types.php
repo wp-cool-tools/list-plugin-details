@@ -1,11 +1,11 @@
 <?php
 /**
- * class-LPI_Custom_Post_Types.php
+ * class-LPD_Custom_Post_Types.php
  *
  * @author      Sandro Lucifora
  * @copyright   (c) 2021, Kybernetik Services
  * @link        https://www.kybernetik-services.com
- * @package     ListPluginInformation
+ * @package     ListPluginDetails
  * @since       1.0.0
  */
 
@@ -13,20 +13,20 @@
 if ( ! defined( 'ABSPATH' ) )
     exit;
 
-class LPI_Custom_Post_Types {
+class LPD_Custom_Post_Types {
 
     /**
      * A dummy constructor to prevent from being loaded more than once.
      *
      * @since 1.0.0
-     * @see LPI_Custom_Post_Types::instance()
+     * @see LPD_Custom_Post_Types::instance()
      */
     private function __construct() { /* Do nothing here */ }
 
     /**
-     * Main LPI_Custom_Post_Types Instance.
+     * Main LPD_Custom_Post_Types Instance.
      *
-     * Insures that only one instance of LPI_Custom_Post_Types exists in memory at any
+     * Insures that only one instance of LPD_Custom_Post_Types exists in memory at any
      * one time. Also prevents needing to define globals all over the place.
      *
      * @since 1.0.0
@@ -41,7 +41,7 @@ class LPI_Custom_Post_Types {
 
         // Only run these methods if they haven't been run previously.
         if ( null === $instance ) {
-            $instance = new LPI_Custom_Post_Types;
+            $instance = new LPD_Custom_Post_Types;
             $instance->init();
         }
 
@@ -153,36 +153,36 @@ class LPI_Custom_Post_Types {
     public function register_cpt() {
 
         $labels = array(
-            'name'                  => _x( 'WPO Plugins', 'Post Type General Name', LPI_DOMAIN ),
-            'singular_name'         => _x( 'WPO Plugin', 'Post Type Singular Name', LPI_DOMAIN ),
-            'menu_name'             => __( 'WPO Plugins', LPI_DOMAIN ),
-            'name_admin_bar'        => __( 'WPO Plugins', LPI_DOMAIN ),
-            'archives'              => __( 'WPO Plugin Archives', LPI_DOMAIN ),
-            'attributes'            => __( 'WPO Plugin Attributes', LPI_DOMAIN ),
-            'parent_item_colon'     => __( 'Parent WPO Plugin:', LPI_DOMAIN ),
-            'all_items'             => __( 'All WPO Plugins', LPI_DOMAIN ),
-            'add_new_item'          => __( 'Add New WPO Plugin', LPI_DOMAIN ),
-            'add_new'               => __( 'Add New', LPI_DOMAIN ),
-            'new_item'              => __( 'New WPO Plugin', LPI_DOMAIN ),
-            'edit_item'             => __( 'Edit WPO Plugin', LPI_DOMAIN ),
-            'update_item'           => __( 'Update WPO Plugin', LPI_DOMAIN ),
-            'view_item'             => __( 'View WPO Plugin', LPI_DOMAIN ),
-            'view_items'            => __( 'View WPO Plugins', LPI_DOMAIN ),
-            'search_items'          => __( 'Search WPO Plugin', LPI_DOMAIN ),
-            'not_found'             => __( 'Not found', LPI_DOMAIN ),
-            'not_found_in_trash'    => __( 'Not found in Trash', LPI_DOMAIN ),
-            'featured_image'        => __( 'WPO Plugin Icon', LPI_DOMAIN ),
-            'set_featured_image'    => __( 'Set WPO plugin icon', LPI_DOMAIN ),
-            'remove_featured_image' => __( 'Remove WPO plugin icon', LPI_DOMAIN ),
-            'use_featured_image'    => __( 'Use as WPO plugin icon', LPI_DOMAIN ),
-            'insert_into_item'      => __( 'Insert into item', LPI_DOMAIN ),
-            'uploaded_to_this_item' => __( 'Uploaded to this WPO plugin', LPI_DOMAIN ),
-            'items_list'            => __( 'WPO Plugins list', LPI_DOMAIN ),
-            'items_list_navigation' => __( 'WPO Plugins list navigation', LPI_DOMAIN ),
-            'filter_items_list'     => __( 'Filter WPO plugins list', LPI_DOMAIN ),
+            'name'                  => _x( 'WPO Plugins', 'Post Type General Name', LPD_DOMAIN ),
+            'singular_name'         => _x( 'WPO Plugin', 'Post Type Singular Name', LPD_DOMAIN ),
+            'menu_name'             => __( 'WPO Plugins', LPD_DOMAIN ),
+            'name_admin_bar'        => __( 'WPO Plugins', LPD_DOMAIN ),
+            'archives'              => __( 'WPO Plugin Archives', LPD_DOMAIN ),
+            'attributes'            => __( 'WPO Plugin Attributes', LPD_DOMAIN ),
+            'parent_item_colon'     => __( 'Parent WPO Plugin:', LPD_DOMAIN ),
+            'all_items'             => __( 'All WPO Plugins', LPD_DOMAIN ),
+            'add_new_item'          => __( 'Add New WPO Plugin', LPD_DOMAIN ),
+            'add_new'               => __( 'Add New', LPD_DOMAIN ),
+            'new_item'              => __( 'New WPO Plugin', LPD_DOMAIN ),
+            'edit_item'             => __( 'Edit WPO Plugin', LPD_DOMAIN ),
+            'update_item'           => __( 'Update WPO Plugin', LPD_DOMAIN ),
+            'view_item'             => __( 'View WPO Plugin', LPD_DOMAIN ),
+            'view_items'            => __( 'View WPO Plugins', LPD_DOMAIN ),
+            'search_items'          => __( 'Search WPO Plugin', LPD_DOMAIN ),
+            'not_found'             => __( 'Not found', LPD_DOMAIN ),
+            'not_found_in_trash'    => __( 'Not found in Trash', LPD_DOMAIN ),
+            'featured_image'        => __( 'WPO Plugin Icon', LPD_DOMAIN ),
+            'set_featured_image'    => __( 'Set WPO plugin icon', LPD_DOMAIN ),
+            'remove_featured_image' => __( 'Remove WPO plugin icon', LPD_DOMAIN ),
+            'use_featured_image'    => __( 'Use as WPO plugin icon', LPD_DOMAIN ),
+            'insert_into_item'      => __( 'Insert into item', LPD_DOMAIN ),
+            'uploaded_to_this_item' => __( 'Uploaded to this WPO plugin', LPD_DOMAIN ),
+            'items_list'            => __( 'WPO Plugins list', LPD_DOMAIN ),
+            'items_list_navigation' => __( 'WPO Plugins list navigation', LPD_DOMAIN ),
+            'filter_items_list'     => __( 'Filter WPO plugins list', LPD_DOMAIN ),
         );
         $args = array(
-            'label'                 => __( 'WPO Plugin', LPI_DOMAIN ),
+            'label'                 => __( 'WPO Plugin', LPD_DOMAIN ),
             'labels'                => $labels,
             'supports'              => array( 'title', 'thumbnail', 'page-attributes' ),
             'taxonomies'            => array( '' ),
@@ -278,7 +278,7 @@ class LPI_Custom_Post_Types {
             return;
 
         // enqueue admin style
-        wp_register_style('admin', plugins_url( '../assets/css/admin.min.css', __FILE__ ), false, LPI_Generic::get_plugin_version() );
+        wp_register_style('admin', plugins_url( '../assets/css/admin.min.css', __FILE__ ), false, LPD_Generic::get_plugin_version() );
         wp_enqueue_style('admin');
 
     }
@@ -297,7 +297,7 @@ class LPI_Custom_Post_Types {
         global $post_type;
 
         if( is_admin() && 'wpo_plugin' == $post_type )
-            return __( 'Enter plugin SLUG here (identical as on wordpress.org) ', LPI_DOMAIN );
+            return __( 'Enter plugin SLUG here (identical as on wordpress.org) ', LPD_DOMAIN );
 
         return $input;
 

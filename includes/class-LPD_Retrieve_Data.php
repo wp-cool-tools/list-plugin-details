@@ -1,11 +1,11 @@
 <?php
 /**
- * class-LPI_Retrieve_Data.php
+ * class-LPD_Retrieve_Data.php
  *
  * @author      Sandro Lucifora
  * @copyright   (c) 2021, Kybernetik Services
  * @link        https://www.kybernetik-services.com
- * @package     ListPluginInformation
+ * @package     ListPluginDetails
  * @since       1.0.0
  */
 
@@ -13,7 +13,7 @@
 if ( ! defined( 'ABSPATH' ) )
     exit;
 
-class LPI_Retrieve_Data {
+class LPD_Retrieve_Data {
 
     public $downloads;
 
@@ -39,17 +39,17 @@ class LPI_Retrieve_Data {
 
             $response = wp_remote_post( $api_url, array( 'body' => $request ) );
 
-            $plugin_info = unserialize( $response['body'] );
+            $plugin_details = unserialize( $response['body'] );
 
-            $downloads[ 'total' ] = $downloads[ 'total' ] + $plugin_info->downloaded;
+            $downloads[ 'total' ] = $downloads[ 'total' ] + $plugin_details->downloaded;
 
-            $downloads[ $plugin_info->name ] = array( 'post_id'       => $id,
-                                                      'slug'          => $plugin_info->slug,
-                                                      'downloads'     => $plugin_info->downloaded,
-                                                      'download_link' => $plugin_info->download_link,
-                                                      'rating'        => $plugin_info->rating,
-                                                      'num_ratings'   => $plugin_info->num_ratings,
-                                                      'homepage'      => $plugin_info->homepage
+            $downloads[ $plugin_details->name ] = array( 'post_id'       => $id,
+                                                         'slug'          => $plugin_details->slug,
+                                                         'downloads'     => $plugin_details->downloaded,
+                                                         'download_link' => $plugin_details->download_link,
+                                                         'rating'        => $plugin_details->rating,
+                                                         'num_ratings'   => $plugin_details->num_ratings,
+                                                         'homepage'      => $plugin_details->homepage
             );
 
         }

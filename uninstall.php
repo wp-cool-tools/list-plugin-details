@@ -5,7 +5,7 @@
  * @author      Sandro Lucifora
  * @copyright   (c) 2021, Kybernetik Services
  * @link        https://www.kybernetik-services.com
- * @package     ListPluginInformation
+ * @package     ListPluginDetails
  * @since       1.0.0
  */
 
@@ -16,13 +16,13 @@ if ( !defined('ABSPATH' ) ) exit;
 if (!defined('WP_UNINSTALL_PLUGIN')) { exit(); }
 
 // Does function not exist?
-if ( !function_exists('lpi_uninstall' ) ) {
+if ( !function_exists('lpd_uninstall' ) ) {
 
     /**
      * Uninstall
      * @return void
      */
-    function lpi_uninstall() {
+    function lpd_uninstall() {
 
         // Check Admin
         if ( is_admin() ) {
@@ -35,10 +35,10 @@ if ( !function_exists('lpi_uninstall' ) ) {
              * Unregister settings
              * https://codex.wordpress.org/Function_Reference/unregister_setting
              */
-            unregister_setting('lpi_settings', 'wc_rma_settings', '');
-            delete_option('lpi_settings');
+            unregister_setting('lpd_settings', 'wc_rma_settings', '');
+            delete_option('lpd_settings');
         }
     }
 
-    lpi_uninstall();
+    lpd_uninstall();
 }

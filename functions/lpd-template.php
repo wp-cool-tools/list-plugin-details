@@ -1,28 +1,28 @@
 <?php
 /**
- *	lpi_get_template()
+ *	lpd_get_template()
  *
  *	Load specific template file.
  *
  *	@param	string|array	$template_names	Template name (incl. file extension like .php)
  *	@param	string			$template_path	Custom template path for plugins and addons (default: '')
  *	@param	bool			$load			Call load_template() if true or return template path if false
- *	@uses	lpi_locate_template()
+ *	@uses	lpd_locate_template()
  *	@return	string			$located		Absolute path to template file (if $load is false)
  *
  *	@since 1.0.0
  */
-function lpi_get_template( $template_names, $args = array(), $template_path = '', $load = true, $require_once = false ): string {
+function lpd_get_template( $template_names, $args = array(), $template_path = '', $load = true, $require_once = false ): string {
 
     // Execute code for this template
-    do_action( 'lpi_get_template', $template_names, $args, $template_path, $load, $require_once );
+    do_action( 'lpd_get_template', $template_names, $args, $template_path, $load, $require_once );
 
-    return lpi_locate_template( $template_names, $args, $template_path, $load, $require_once );
+    return lpd_locate_template( $template_names, $args, $template_path, $load, $require_once );
 
 }
 
 /**
- *	lpi_locate_template()
+ *	lpd_locate_template()
  *
  *	Locate a template and return the path
  *	for inclusion or load if desired.
@@ -35,22 +35,22 @@ function lpi_get_template( $template_names, $args = array(), $template_path = ''
  *
  *	 	$template_path (custom path from addon for example) 						/	$template_name
  *
- *	 	/wp-content/plugins/		LPI_DOMAIN (e.g. list-plugin-information)	/	templates	/	$template_name
+ *	 	/wp-content/plugins/		LPD_DOMAIN (e.g. list-plugin-details)	/	templates	/	$template_name
  *
  *	@param	string|array	$template_names	Template name (incl. file extension like .php)
  *	@param	string			$template_path	Custom template path for plugins and addons (default: '')
  *	@param	bool			$load			Call load_template() if true or return template path if false
- *	@uses	LPI_Template::locate_template()
+ *	@uses	LPD_Template::locate_template()
  *	@return	string			$located		Absolute path to template file (if $load is false)
  *
  *	@since 1.0.0
  */
-function lpi_locate_template( $template_names, $args = array(), $template_path = '', $load = false, $require_once = false ): string {
-    return LPI_Template::locate_template( $template_names, $args, $template_path, $load, $require_once );
+function lpd_locate_template( $template_names, $args = array(), $template_path = '', $load = false, $require_once = false ): string {
+    return LPD_Template::locate_template( $template_names, $args, $template_path, $load, $require_once );
 }
 
 /**
- *	lpi_get_template_part()
+ *	lpd_get_template_part()
  *
  *	Load specific template part.
  *
@@ -62,20 +62,20 @@ function lpi_locate_template( $template_names, $args = array(), $template_path =
  *
  *	@since 1.0.0
  */
-function lpi_get_template_part( $slug, $name = null, $args = array(), $template_path = '', $load = true, $require_once = false ): string {
-    return LPI_Template::get_template_part( $slug, $name, $args, $template_path, $load, $require_once );
+function lpd_get_template_part( $slug, $name = null, $args = array(), $template_path = '', $load = true, $require_once = false ): string {
+    return LPD_Template::get_template_part( $slug, $name, $args, $template_path, $load, $require_once );
 }
 
 /**
- *	lpi_get_templates_dir()
+ *	lpd_get_templates_dir()
  *
- *	Return path to LPI_DOMAIN (e.g. list-plugin-information)
+ *	Return path to LPD_DOMAIN (e.g. list-plugin-details)
  *	templates directory.
  *
  *	@return	string
  *
  *	@since 1.0.0
  */
-function lpi_get_templates_dir(): string {
-    return LPI_PLUGIN_DIR . '/templates/';
+function lpd_get_templates_dir(): string {
+    return LPD_PLUGIN_DIR . '/templates/';
 }

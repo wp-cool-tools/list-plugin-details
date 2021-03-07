@@ -1,10 +1,10 @@
 <wpml-config>
     <admin-texts>
-        <key name="lpi_settings">
-            <key name="lpi-block-headline" />
-            <key name="lpi-block-total" />
-            <key name="lpi-retrieve-version-label" />
-            <key name="lpi-retrieve-tested-label" />
+        <key name="lpd_settings">
+            <key name="lpd-block-headline" />
+            <key name="lpd-block-total" />
+            <key name="lpd-retrieve-version-label" />
+            <key name="lpd-retrieve-tested-label" />
         </key>
     </admin-texts>
 </wpml-config>
