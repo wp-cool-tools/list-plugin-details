@@ -38,7 +38,6 @@ No. List Plugin Details is just providing the technical structure for the list. 
 
 ## Translations
 
-POT file with text strings is included.
 If you would like to add a translation in your language, please do it on [translate.wordpress.org](https://translate.wordpress.org/projects/wp-plugins/list-plugin-details/)
 
 ## Known issues

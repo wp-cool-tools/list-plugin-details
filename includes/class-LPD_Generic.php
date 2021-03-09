@@ -42,8 +42,6 @@ class LPD_Generic {
 
     private function init() {
 
-        add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
-
         add_shortcode( 'wpo_plugin_showcase', array('LPD_Shortcode_wpo_plugin', 'shortcode_wpo_plugin_showcase' ) );
 
         if( is_admin() ) {
@@ -100,22 +98,6 @@ class LPD_Generic {
     }
 
     /**
-     *	load_plugin_textdomain()
-     *
-     *	Set up localization for this plugin
-     *	loading the text domain.
-     *
-     *	@uses	load_plugin_textdomain()
-     *
-     *	@since	1.0.0
-     */
-    public static function load_plugin_textdomain() {
-
-        load_plugin_textdomain( LPD_DOMAIN, false, '/' . LPD_DOMAIN . '/languages/' );
-
-    }
-
-    /**
      * Add settings action link to the plugins page.
      *
      * @param $links
@@ -127,7 +109,7 @@ class LPD_Generic {
         $url = 'edit.php?post_type=wpo_plugin&page=lpi';
         return array_merge(
             array(
-                'settings' => sprintf( '<a href="%s">%s</a>', esc_url( admin_url( $url ) ), __( 'Settings', LPD_DOMAIN ) )
+                'settings' => sprintf( '<a href="%s">%s</a>', esc_url( admin_url( $url ) ), __( 'Settings', 'list-plugin-details' ) )
             ),
             $links
         );

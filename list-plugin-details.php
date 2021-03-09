@@ -12,14 +12,13 @@
  * Plugin URI:        http://wordpress.org/plugins/list-plugin-details/
  * Description:       This tiny plugin lists selected plugin details which are provided on wordpress.org. It allows you to show a showcase of your developed or your preferred plugins, which are listed on wordpress.org.
  * Version:           1.0.0
- * Requires at least: 5.0
+ * Requires at least: 4.6
  * Requires PHP:      7.3
  * Author:            Kybernetik Services
  * Author URI:        https://www.kybernetik-services.com/?utm_source=wordpress_org&utm_medium=plugin&utm_campaign=list-plugin-details&utm_content=author
  * License:           GPLv3 or later
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain:       list-plugin-details
- * Domain Path:       /languages
  */
 
 // Exit if accessed directly.
