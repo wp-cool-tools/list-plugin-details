@@ -91,7 +91,9 @@ class LPD_Generic {
      */
     public static function get_plugin_version() {
 
-        $plugin_data = get_plugin_data( __FILE__ );
+        $plugin_data = get_file_data(__FILE__, [
+            'Version' => 'Version'
+        ], 'plugin');
 
         return $plugin_data[ 'Version' ];
 

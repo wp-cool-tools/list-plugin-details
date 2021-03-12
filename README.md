@@ -14,6 +14,11 @@ List Plugin Details is just providing the technical structure to show the retrie
 Upload the files to your server and put it in your folder /plugins/.
 Activate the plugin, enter the API key and check the settings page.
 
+## Demo
+
+If you want to see first how List Plugin Details works, please check out our own <a href="https://www.kybernetik-services.com/plugins/free/?utm_source=wordpress_org&utm_medium=plugin&utm_campaign=list-plugin-details&utm_content=demo" target="_blank">demo page</a>.
+
+
 ## Frequently Asked Questions
 
 ### How can I add the list to my page?
@@ -35,6 +40,11 @@ No. List Plugin Details lists the official an public details of any plugin avail
 ### Does List Plugin Details provides several layouts?
 
 No. List Plugin Details is just providing the technical structure for the list. It doesn't come with any style. But you have the option to add your own classes to several tags to make the list to your list.
+
+### Why do you call dependencies from shields.io?
+
+List Plugin Details allows you to show badges from shields.io on your plugin page. This needs to get the badge directly from img.shields.io. You do not need to open an account. But make sure this is noted in your GDPR related information.
+By default, this option is not enabled. You need to actively decide to display the badge on your page. If you keep this option disabled there is not remote call from shields.io.
 
 ## Translations
 
