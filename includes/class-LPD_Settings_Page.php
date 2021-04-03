@@ -63,7 +63,7 @@ if ( !class_exists('LPD_Settings_Page') ) {
             // This page will be under "WooCommerce"
             add_submenu_page('edit.php?post_type=wpo_plugin', // $parent_slug
                              'Settings', // $page_title
-                             __('Settings', 'list-plugin-details'), // $menu_title
+                             __('Settings', LPD_DOMAIN), // $menu_title
                              'manage_options', // $capability
                              'lpi', // $menu_slug
                              array($this, 'create_admin_page') // $function
@@ -79,19 +79,17 @@ if ( !class_exists('LPD_Settings_Page') ) {
          * @since 1.0.0
          */
         public function create_admin_page() {
-
-            //ToDO: Add select box for setting thumbnail size
-            /*
+/*
             $a = LPD_Generic::get_all_image_sizes();
             echo '<pre>';
             print_r( $a );
             echo '</pre>';
-            */
+*/
 
             $active_page = sanitize_text_field( ( isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'general' ) ); // set default tab ?>
 
             <div class="wrap">
-                <h1><?php _e('Settings', 'list-plugin-details'); ?></h1>
+                <h1><?php _e('Settings', LPD_DOMAIN); ?></h1>
                 <?php settings_errors(); ?>
                 <h2 class="nav-tab-wrapper">
                     <a href="<?php echo admin_url( $this->admin_url ); ?>" class="nav-tab<?php echo ( 'layout' == $active_page ? ' nav-tab-active' : '' ); ?>"><?php esc_html_e('Layout', LPD_DOMAIN); ?></a>
@@ -143,7 +141,7 @@ if ( !class_exists('LPD_Settings_Page') ) {
 
             add_settings_section(
                 $section, // ID
-                esc_html__('Block', 'list-plugin-details'),
+                esc_html__('Block', LPD_DOMAIN),
                 '', // Callback
                 $this->option_page // Page
             );
@@ -151,7 +149,7 @@ if ( !class_exists('LPD_Settings_Page') ) {
             $id = 'lpd-block-headline';
             add_settings_field(
                 $id,
-                esc_html__('Headline', 'list-plugin-details'),
+                esc_html__('Headline', LPD_DOMAIN),
                 array( $this, 'option_input_text_cb'), // general call back for input text
                 $this->option_page,
                 $section,
@@ -159,15 +157,15 @@ if ( !class_exists('LPD_Settings_Page') ) {
                     'option_group' => $this->option_group,
                     'id'           => $id,
                     'value'        => isset( $this->options_settings[ $id ] ) ? $this->options_settings[ $id ] : '',
-                    'description'  => esc_html__('Set the headline', 'list-plugin-details' ),
-                    'placeholder'  => __('Our free plugins', 'list-plugin-details' )
+                    'description'  => esc_html__('Set the headline', LPD_DOMAIN ),
+                    'placeholder'  => __('Our free plugins', LPD_DOMAIN )
                 )
             );
 
             $id = 'lpd-block-total';
             add_settings_field(
                 $id,
-                esc_html__('Total downloads', 'list-plugin-details'),
+                esc_html__('Total downloads', LPD_DOMAIN),
                 array( $this, 'option_input_text_cb'), // general call back for input text
                 $this->option_page,
                 $section,
@@ -175,15 +173,15 @@ if ( !class_exists('LPD_Settings_Page') ) {
                     'option_group' => $this->option_group,
                     'id'           => $id,
                     'value'        => isset( $this->options_settings[ $id ] ) ? $this->options_settings[ $id ] : '',
-                    'description'  => esc_html__('Set the total download text and use %s as a placeholder for the retrieved number', 'list-plugin-details' ),
-                    'placeholder'  => __( 'Our plugins have been downloaded a total of %s times.', 'list-plugin-details' )
+                    'description'  => esc_html__('Set the total download text and use %s as a placeholder for the retrieved number', LPD_DOMAIN ),
+                    'placeholder'  => __( 'Our plugins have been downloaded a total of %s times.', LPD_DOMAIN )
                 )
             );
 
             $id = 'lpd-block-class';
             add_settings_field(
                 $id,
-                esc_html__('Outer block class', 'list-plugin-details'),
+                esc_html__('Outer block class', LPD_DOMAIN),
                 array( $this, 'option_input_text_cb'), // general call back for input text
                 $this->option_page,
                 $section,
@@ -191,14 +189,14 @@ if ( !class_exists('LPD_Settings_Page') ) {
                     'option_group' => $this->option_group,
                     'id'           => $id,
                     'value'        => isset( $this->options_settings[ $id ] ) ? $this->options_settings[ $id ] : '',
-                    'description'  => esc_html__('Set the class for the div tag which covers the entire plugin list', 'list-plugin-details' )
+                    'description'  => esc_html__('Set the class for the div tag which covers the entire plugin list', LPD_DOMAIN )
                 )
             );
 
             $id = 'lpd-block-h-tag';
             add_settings_field(
                 $id,
-                esc_html__('Headline Tag', 'list-plugin-details'),
+                esc_html__('Headline Tag', LPD_DOMAIN),
                 array( $this, 'option_select_cb'),
                 $this->option_page,
                 $section,
@@ -207,14 +205,14 @@ if ( !class_exists('LPD_Settings_Page') ) {
                     'id'           => $id,
                     'value'        => isset( $this->options_settings[ $id ] ) ? $this->options_settings[ $id ] : '',
                     'options'      => array(
-                        'h1' => esc_html__('H1','list-plugin-details'),
-                        'h2' => esc_html__('H2','list-plugin-details'),
-                        'h3' => esc_html__('H3','list-plugin-details'),
-                        'h4' => esc_html__('H4','list-plugin-details'),
-                        'h5' => esc_html__('H5','list-plugin-details'),
-                        'h6' => esc_html__('H6','list-plugin-details'),
+                        'h1' => esc_html__('H1',LPD_DOMAIN),
+                        'h2' => esc_html__('H2',LPD_DOMAIN),
+                        'h3' => esc_html__('H3',LPD_DOMAIN),
+                        'h4' => esc_html__('H4',LPD_DOMAIN),
+                        'h5' => esc_html__('H5',LPD_DOMAIN),
+                        'h6' => esc_html__('H6',LPD_DOMAIN),
                     ),
-                    'description'  => esc_html__('Choose the headline tag for entire block', 'list-plugin-details' ),
+                    'description'  => esc_html__('Choose the headline tag for entire block', LPD_DOMAIN ),
 
                 )
             );
@@ -222,7 +220,7 @@ if ( !class_exists('LPD_Settings_Page') ) {
             $id = 'lpd-block-h-class';
             add_settings_field(
                 $id,
-                esc_html__('Headline class', 'list-plugin-details'),
+                esc_html__('Headline class', LPD_DOMAIN),
                 array( $this, 'option_input_text_cb'), // general call back for input text
                 $this->option_page,
                 $section,
@@ -230,14 +228,14 @@ if ( !class_exists('LPD_Settings_Page') ) {
                     'option_group' => $this->option_group,
                     'id'           => $id,
                     'value'        => isset( $this->options_settings[ $id ] ) ? $this->options_settings[ $id ] : '',
-                    'description'  => esc_html__('Set the class for the headline of the entire block', 'list-plugin-details' )
+                    'description'  => esc_html__('Set the class for the headline of the entire block', LPD_DOMAIN )
                 )
             );
 
             $id = 'lpd-block-p-class';
             add_settings_field(
                 $id,
-                esc_html__('Paragraph class', 'list-plugin-details'),
+                esc_html__('Paragraph class', LPD_DOMAIN),
                 array( $this, 'option_input_text_cb'), // general call back for input text
                 $this->option_page,
                 $section,
@@ -245,7 +243,7 @@ if ( !class_exists('LPD_Settings_Page') ) {
                     'option_group' => $this->option_group,
                     'id'           => $id,
                     'value'        => isset( $this->options_settings[ $id ] ) ? $this->options_settings[ $id ] : '',
-                    'description'  => esc_html__('Set the class for the total download text, which is shown below the headline', 'list-plugin-details' )
+                    'description'  => esc_html__('Set the class for the total download text, which is shown below the headline', LPD_DOMAIN )
                 )
             );
 
@@ -261,7 +259,7 @@ if ( !class_exists('LPD_Settings_Page') ) {
 
             add_settings_section(
                 $section, // ID
-                esc_html__('Row', 'list-plugin-details'),
+                esc_html__('Row', LPD_DOMAIN),
                 '', // Callback
                 $this->option_page // Page
             );
@@ -269,7 +267,7 @@ if ( !class_exists('LPD_Settings_Page') ) {
             $id = 'lpd-rows';
             add_settings_field(
                 $id,
-                esc_html__('Rows per Column', 'list-plugin-details'),
+                esc_html__('Rows per Column', LPD_DOMAIN),
                 array( $this, 'option_input_text_cb'), // general call back for input text
                 $this->option_page,
                 $section,
@@ -277,14 +275,14 @@ if ( !class_exists('LPD_Settings_Page') ) {
                     'option_group' => $this->option_group,
                     'id'           => $id,
                     'value'        => isset( $this->options_settings[ $id ] ) ? $this->options_settings[ $id ] : '',
-                    'description'  => esc_html__('Set how many plugins should be shown per column', 'list-plugin-details' )
+                    'description'  => esc_html__('Set how many plugins should be shown per column', LPD_DOMAIN )
                 )
             );
 
             $id = 'lpd-row-class';
             add_settings_field(
                 $id,
-                esc_html__('Row class', 'list-plugin-details'),
+                esc_html__('Row class', LPD_DOMAIN),
                 array( $this, 'option_input_text_cb'), // general call back for input text
                 $this->option_page,
                 $section,
@@ -292,7 +290,7 @@ if ( !class_exists('LPD_Settings_Page') ) {
                     'option_group' => $this->option_group,
                     'id'           => $id,
                     'value'        => isset( $this->options_settings[ $id ] ) ? $this->options_settings[ $id ] : '',
-                    'description'  => esc_html__('Set the class for the div tag which covers the row', 'list-plugin-details' )
+                    'description'  => esc_html__('Set the class for the div tag which covers the row', LPD_DOMAIN )
                 )
             );
 
@@ -309,7 +307,7 @@ if ( !class_exists('LPD_Settings_Page') ) {
 
             add_settings_section(
                 $section, // ID
-                esc_html__('Card', 'list-plugin-details'),
+                esc_html__('Card', LPD_DOMAIN),
                 '', // Callback
                 $this->option_page // Page
             );
@@ -317,7 +315,7 @@ if ( !class_exists('LPD_Settings_Page') ) {
             $id = 'lpd-card-class';
             add_settings_field(
                 $id,
-                esc_html__('Card class', 'list-plugin-details'),
+                esc_html__('Card class', LPD_DOMAIN),
                 array( $this, 'option_input_text_cb'), // general call back for input text
                 $this->option_page,
                 $section,
@@ -325,14 +323,14 @@ if ( !class_exists('LPD_Settings_Page') ) {
                     'option_group' => $this->option_group,
                     'id'           => $id,
                     'value'        => isset( $this->options_settings[ $id ] ) ? $this->options_settings[ $id ] : '',
-                    'description'  => esc_html__('Set the class for the div tag which covers the card', 'list-plugin-details' )
+                    'description'  => esc_html__('Set the class for the div tag which covers the card', LPD_DOMAIN )
                 )
             );
 
             $id = 'lpd-figure-class';
             add_settings_field(
                 $id,
-                esc_html__('Figure class', 'list-plugin-details'),
+                esc_html__('Figure class', LPD_DOMAIN),
                 array( $this, 'option_input_text_cb'), // general call back for input text
                 $this->option_page,
                 $section,
@@ -340,14 +338,14 @@ if ( !class_exists('LPD_Settings_Page') ) {
                     'option_group' => $this->option_group,
                     'id'           => $id,
                     'value'        => isset( $this->options_settings[ $id ] ) ? $this->options_settings[ $id ] : '',
-                    'description'  => esc_html__('Set the class for the figure tag which covers the image', 'list-plugin-details' )
+                    'description'  => esc_html__('Set the class for the figure tag which covers the image', LPD_DOMAIN )
                 )
             );
 
             $id = 'lpd-button-cover';
             add_settings_field(
                 $id,
-                esc_html__('Button cover', 'list-plugin-details'),
+                esc_html__('Button cover', LPD_DOMAIN),
                 array( $this, 'option_input_text_cb'), // general call back for input text
                 $this->option_page,
                 $section,
@@ -355,14 +353,14 @@ if ( !class_exists('LPD_Settings_Page') ) {
                     'option_group' => $this->option_group,
                     'id'           => $id,
                     'value'        => isset( $this->options_settings[ $id ] ) ? $this->options_settings[ $id ] : '',
-                    'description'  => esc_html__('Set the class for the div container that covers the button', 'list-plugin-details' )
+                    'description'  => esc_html__('Set the class for the div container that covers the button', LPD_DOMAIN )
                 )
             );
 
             $id = 'lpd-button';
             add_settings_field(
                 $id,
-                esc_html__('Button', 'list-plugin-details'),
+                esc_html__('Button', LPD_DOMAIN),
                 array( $this, 'option_input_text_cb'), // general call back for input text
                 $this->option_page,
                 $section,
@@ -370,14 +368,14 @@ if ( !class_exists('LPD_Settings_Page') ) {
                     'option_group' => $this->option_group,
                     'id'           => $id,
                     'value'        => isset( $this->options_settings[ $id ] ) ? $this->options_settings[ $id ] : '',
-                    'description'  => esc_html__('Set the class for the div container of the button', 'list-plugin-details' )
+                    'description'  => esc_html__('Set the class for the div container of the button', LPD_DOMAIN )
                 )
             );
 
             $id = 'lpd-button-a';
             add_settings_field(
                 $id,
-                esc_html__('Button a tag', 'list-plugin-details'),
+                esc_html__('Button a tag', LPD_DOMAIN),
                 array( $this, 'option_input_text_cb'), // general call back for input text
                 $this->option_page,
                 $section,
@@ -385,14 +383,14 @@ if ( !class_exists('LPD_Settings_Page') ) {
                     'option_group' => $this->option_group,
                     'id'           => $id,
                     'value'        => isset( $this->options_settings[ $id ] ) ? $this->options_settings[ $id ] : '',
-                    'description'  => esc_html__('Set the class for the a tag of the button', 'list-plugin-details' )
+                    'description'  => esc_html__('Set the class for the a tag of the button', LPD_DOMAIN )
                 )
             );
 
             $id = 'lpd-h-tag';
             add_settings_field(
                 $id,
-                esc_html__('Headline Tag', 'list-plugin-details'),
+                esc_html__('Headline Tag', LPD_DOMAIN),
                 array( $this, 'option_select_cb'),
                 $this->option_page,
                 $section,
@@ -401,14 +399,14 @@ if ( !class_exists('LPD_Settings_Page') ) {
                     'id'           => $id,
                     'value'        => isset( $this->options_settings[ $id ] ) ? $this->options_settings[ $id ] : '',
                     'options'      => array(
-                        'h1' => esc_html__('H1','list-plugin-details'),
-                        'h2' => esc_html__('H2','list-plugin-details'),
-                        'h3' => esc_html__('H3','list-plugin-details'),
-                        'h4' => esc_html__('H4','list-plugin-details'),
-                        'h5' => esc_html__('H5','list-plugin-details'),
-                        'h6' => esc_html__('H6','list-plugin-details'),
+                        'h1' => esc_html__('H1',LPD_DOMAIN),
+                        'h2' => esc_html__('H2',LPD_DOMAIN),
+                        'h3' => esc_html__('H3',LPD_DOMAIN),
+                        'h4' => esc_html__('H4',LPD_DOMAIN),
+                        'h5' => esc_html__('H5',LPD_DOMAIN),
+                        'h6' => esc_html__('H6',LPD_DOMAIN),
                     ),
-                    'description'  => esc_html__('Choose the headline tag for plugin card', 'list-plugin-details' ),
+                    'description'  => esc_html__('Choose the headline tag for plugin card', LPD_DOMAIN ),
 
                 )
             );
@@ -416,7 +414,7 @@ if ( !class_exists('LPD_Settings_Page') ) {
             $id = 'lpd-h-class';
             add_settings_field(
                 $id,
-                esc_html__('Headline class', 'list-plugin-details'),
+                esc_html__('Headline class', LPD_DOMAIN),
                 array( $this, 'option_input_text_cb'), // general call back for input text
                 $this->option_page,
                 $section,
@@ -424,7 +422,7 @@ if ( !class_exists('LPD_Settings_Page') ) {
                     'option_group' => $this->option_group,
                     'id'           => $id,
                     'value'        => isset( $this->options_settings[ $id ] ) ? $this->options_settings[ $id ] : '',
-                    'description'  => esc_html__('Set the class for the plugin card', 'list-plugin-details' )
+                    'description'  => esc_html__('Set the class for the plugin card', LPD_DOMAIN )
                 )
             );
 

@@ -120,25 +120,25 @@ class LPD_Custom_Post_Types {
 
         $post_type = NULL;
 
-        if($post && (property_exists($post, 'post_type') || method_exists($post, 'post_type')))
+        if( $post && ( property_exists( $post, 'post_type' ) || method_exists( $post, 'post_type' ) ) )
             $post_type = $post->post_type;
 
-        if(empty($post_type) && !empty($current_screen) && (property_exists($current_screen, 'post_type') || method_exists($current_screen, 'post_type')) && !empty($current_screen->post_type))
+        if( empty( $post_type ) && !empty( $current_screen ) && (property_exists($current_screen, 'post_type' ) || method_exists($current_screen, 'post_type')) && !empty($current_screen->post_type))
             $post_type = $current_screen->post_type;
 
-        if(empty($post_type) && !empty($typenow))
+        if( empty( $post_type ) && !empty( $typenow ) )
             $post_type = $typenow;
 
-        if(empty($post_type) && function_exists('get_current_screen'))
+        if( empty( $post_type ) && function_exists('get_current_screen'))
             $post_type = get_current_screen();
 
-        if(empty($post_type) && isset($_REQUEST['post']) && !empty($_REQUEST['post']) && function_exists('get_post_type') && $get_post_type = get_post_type((int)$_REQUEST['post']))
+        if( empty( $post_type ) && isset( $_REQUEST['post']) && !empty($_REQUEST['post']) && function_exists('get_post_type' ) && $get_post_type = get_post_type( ( int )$_REQUEST['post']))
             $post_type = $get_post_type;
 
-        if(empty($post_type) && isset($_REQUEST['post_type']) && !empty($_REQUEST['post_type']))
+        if( empty( $post_type ) && isset( $_REQUEST['post_type']) && !empty($_REQUEST['post_type']))
             $post_type = sanitize_key($_REQUEST['post_type']);
 
-        if(empty($post_type) && 'edit.php' == $pagenow)
+        if( empty( $post_type ) && 'edit.php' == $pagenow)
             $post_type = 'post';
 
         if( is_object( $post_type ) || is_array( $post_type ) )
