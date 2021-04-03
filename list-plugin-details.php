@@ -11,7 +11,7 @@
  * Plugin Name:       List Plugin Details (from wordpress.org)
  * Plugin URI:        http://wordpress.org/plugins/list-plugin-details/
  * Description:       This tiny plugin lists selected plugin details which are provided on wordpress.org. It allows you to show a showcase of your developed or your preferred plugins, which are listed on wordpress.org.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 5.0
  * Requires PHP:      7.3
  * Author:            Kybernetik Services

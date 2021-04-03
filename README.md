@@ -6,8 +6,6 @@ This tiny plugin lists selected plugin details which are provided on wordpress.o
 Whether you are a plugin developer, or you want to show a list of several plugins. List Plugin Details retrieves details from wordpress.org like downloads, rating and number of reviews and shows them in cards. You will find a huge number of settings to transform the list into your list.
 Just add a shortcode on the page you want and enjoy the plugin list.
 
-IMPORTANT NOTE: List Plugin Details is just providing the technical structure to show the retrieved details on your website. This plugin does not come with any style. So, it is important for you to add your own classes and/or to write some CSS to show your individual list. You have also the possibility to modify the showcase template and transform it to your needs.
-
 ## Style and layout
 List Plugin Details is just providing the technical structure to show the retrieved details on your website. This plugin does not come with any style. So, it is important for you to add you own classes and/or to write some CSS to show your individual list. YOu have also the possibility to modify the showcase template and transform it to your needs.
 
@@ -16,8 +14,7 @@ Upload the files to your server and put it in your folder /plugins/.
 Activate the plugin, enter the API key and check the settings page.
 
 ## Demo
-If you want to see first how List Plugin Details works, please check out our own <a href="https://www.kybernetik-services.com/plugins/free/?utm_source=wordpress_org&utm_medium=plugin&utm_campaign=list-plugin-details&utm_content=demo" target="_blank">demo page</a>.
-
+If you want to see how List Plugin Details works, please check out our own <a href="https://www.kybernetik-services.com/plugins/free/?utm_source=wordpress_org&utm_medium=plugin&utm_campaign=list-plugin-details&utm_content=demo" target="_blank">page</a>.
 
 ## Frequently Asked Questions
 
@@ -27,15 +24,15 @@ Just add the shortcode [wpo_plugin_showcase] to your page or post.
 
 ### Is the showcase ready for Gutenberg?
 
-Yes, you can use the shortcode [wpo_plugin_showcase] within Gutenberg.
+Yes, you can use the shortcode [wpo_plugin_showcase] with Gutenberg blocks.
 
 ### Do I have to be a plugin author?
 
-No. List Plugin Details grabs the official and public details of the plugin from wordpress.org.
+No. List Plugin Details grabs the public details of the plugin from wordpress.org.
 
 ### Can I only list the plugins that I am the author of?
 
-No. List Plugin Details lists the official and public details of any plugin available on wordpress.org
+No. List Plugin Details lists the  public details of any plugin which is available on wordpress.org. Create a showcase of your own, or your preferred plugins.
 
 ### Does List Plugin Details provides several layouts?
 

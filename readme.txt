@@ -4,7 +4,7 @@
 * Tags: plugin, wordpress.org, list, details
 * Requires at least: 5.0
 * Tested up to: 5.8
-* Stable tag: 1.0.0
+* Stable tag: 1.0.1
 * Requires PHP: 7.3
 * License: GPLv3
 * License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -32,15 +32,15 @@ Just add the shortcode [wpo_plugin_showcase] to your page or post.
 
 = Is the showcase ready for Gutenberg? =
 
-Yes, you can use the shortcode [wpo_plugin_showcase] within Gutenberg.
+Yes, you can use the shortcode [wpo_plugin_showcase] with Gutenberg blocks.
 
 = Do I have to be a plugin author? =
 
-No. List Plugin Details grabs the official and public details of the plugin from wordpress.org.
+No. List Plugin Details grabs the public details of the plugin from wordpress.org.
 
 = Can I only list the plugins that I am the author of? =
 
-No. List Plugin Details lists the official and public details of any plugin available on wordpress.org
+No. List Plugin Details lists the  public details of any plugin which is available on wordpress.org. Create a showcase of your own, or your preferred plugins.
 
 = Does List Plugin Details provides several layouts? =
 
@@ -48,8 +48,8 @@ No. List Plugin Details is just providing the technical structure for the list. 
 
 = Why do you call dependencies from shields.io? =
 
-List Plugin Details allows you to show badges from shields.io on your plugin page. This needs a call of the badge directly from img.shields.io. You do not need to open an account. But, make sure this is noted in your GDPR related information.
-By default, this option is not enabled. You need to actively decide to display the badge on your page. If you keep this option disabled, there is no remote call to shields.io.
+List Plugin Details allows you to show badges from shields.io on your plugin page. This needs to get the badge directly from img.shields.io. You do not need to open an account. But make sure this is noted in your GDPR related information.
+By default, this option is not enabled. You need to actively decide to display the badge on your page. If you keep this option disabled there is not remote call from shields.io.
 
 == Screenshots ==
 1. Settings
@@ -59,6 +59,10 @@ By default, this option is not enabled. You need to actively decide to display t
 * Depending on the number of plugins you want to get the details from, it takes a second to retrieve and show the results. Not sure if this is an issue, but it can definitely be improved in the future.
 
 == Changelog ==
+= 1.0.1 =
+* Small improvements
+* Tested with WordPress 5.8
+
 = 1.0.0 =
 * Very first version with very cool features
 
