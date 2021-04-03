@@ -120,26 +120,29 @@ class LPD_Custom_Post_Types {
 
         $post_type = NULL;
 
-        if($post && (property_exists($post, 'post_type') || method_exists($post, 'post_type')))
+        if( $post && ( property_exists( $post, 'post_type' ) || method_exists( $post, 'post_type' ) ) )
             $post_type = $post->post_type;
 
-        if(empty($post_type) && !empty($current_screen) && (property_exists($current_screen, 'post_type') || method_exists($current_screen, 'post_type')) && !empty($current_screen->post_type))
+        if( empty( $post_type ) && !empty( $current_screen ) && (property_exists($current_screen, 'post_type' ) || method_exists($current_screen, 'post_type')) && !empty($current_screen->post_type))
             $post_type = $current_screen->post_type;
 
-        if(empty($post_type) && !empty($typenow))
+        if( empty( $post_type ) && !empty( $typenow ) )
             $post_type = $typenow;
 
-        if(empty($post_type) && function_exists('get_current_screen'))
+        if( empty( $post_type ) && function_exists('get_current_screen'))
             $post_type = get_current_screen();
 
-        if(empty($post_type) && isset($_REQUEST['post']) && !empty($_REQUEST['post']) && function_exists('get_post_type') && $get_post_type = get_post_type((int)$_REQUEST['post']))
+        if( empty( $post_type ) && isset( $_REQUEST['post']) && !empty($_REQUEST['post']) && function_exists('get_post_type' ) && $get_post_type = get_post_type( ( int )$_REQUEST['post']))
             $post_type = $get_post_type;
 
-        if(empty($post_type) && isset($_REQUEST['post_type']) && !empty($_REQUEST['post_type']))
+        if( empty( $post_type ) && isset( $_REQUEST['post_type']) && !empty($_REQUEST['post_type']))
             $post_type = sanitize_key($_REQUEST['post_type']);
 
-        if(empty($post_type) && 'edit.php' == $pagenow)
+        if( empty( $post_type ) && 'edit.php' == $pagenow)
             $post_type = 'post';
+
+        if( is_object( $post_type ) || is_array( $post_type ) )
+            $post_type = NULL;
 
         return $post_type;
 
@@ -153,36 +156,36 @@ class LPD_Custom_Post_Types {
     public function register_cpt() {
 
         $labels = array(
-            'name'                  => _x( 'WPO Plugins', 'Post Type General Name', 'list-plugin-details' ),
-            'singular_name'         => _x( 'WPO Plugin', 'Post Type Singular Name', 'list-plugin-details' ),
-            'menu_name'             => __( 'WPO Plugins', 'list-plugin-details' ),
-            'name_admin_bar'        => __( 'WPO Plugins', 'list-plugin-details' ),
-            'archives'              => __( 'WPO Plugin Archives', 'list-plugin-details' ),
-            'attributes'            => __( 'WPO Plugin Attributes', 'list-plugin-details' ),
-            'parent_item_colon'     => __( 'Parent WPO Plugin:', 'list-plugin-details' ),
-            'all_items'             => __( 'All WPO Plugins', 'list-plugin-details' ),
-            'add_new_item'          => __( 'Add New WPO Plugin', 'list-plugin-details' ),
-            'add_new'               => __( 'Add New', 'list-plugin-details' ),
-            'new_item'              => __( 'New WPO Plugin', 'list-plugin-details' ),
-            'edit_item'             => __( 'Edit WPO Plugin', 'list-plugin-details' ),
-            'update_item'           => __( 'Update WPO Plugin', 'list-plugin-details' ),
-            'view_item'             => __( 'View WPO Plugin', 'list-plugin-details' ),
-            'view_items'            => __( 'View WPO Plugins', 'list-plugin-details' ),
-            'search_items'          => __( 'Search WPO Plugin', 'list-plugin-details' ),
-            'not_found'             => __( 'Not found', 'list-plugin-details' ),
-            'not_found_in_trash'    => __( 'Not found in Trash', 'list-plugin-details' ),
-            'featured_image'        => __( 'WPO Plugin Icon', 'list-plugin-details' ),
-            'set_featured_image'    => __( 'Set WPO plugin icon', 'list-plugin-details' ),
-            'remove_featured_image' => __( 'Remove WPO plugin icon', 'list-plugin-details' ),
-            'use_featured_image'    => __( 'Use as WPO plugin icon', 'list-plugin-details' ),
-            'insert_into_item'      => __( 'Insert into item', 'list-plugin-details' ),
-            'uploaded_to_this_item' => __( 'Uploaded to this WPO plugin', 'list-plugin-details' ),
-            'items_list'            => __( 'WPO Plugins list', 'list-plugin-details' ),
-            'items_list_navigation' => __( 'WPO Plugins list navigation', 'list-plugin-details' ),
-            'filter_items_list'     => __( 'Filter WPO plugins list', 'list-plugin-details' ),
+            'name'                  => _x( 'WPO Plugins', 'Post Type General Name', LPD_DOMAIN ),
+            'singular_name'         => _x( 'WPO Plugin', 'Post Type Singular Name', LPD_DOMAIN ),
+            'menu_name'             => __( 'WPO Plugins', LPD_DOMAIN ),
+            'name_admin_bar'        => __( 'WPO Plugins', LPD_DOMAIN ),
+            'archives'              => __( 'WPO Plugin Archives', LPD_DOMAIN ),
+            'attributes'            => __( 'WPO Plugin Attributes', LPD_DOMAIN ),
+            'parent_item_colon'     => __( 'Parent WPO Plugin:', LPD_DOMAIN ),
+            'all_items'             => __( 'All WPO Plugins', LPD_DOMAIN ),
+            'add_new_item'          => __( 'Add New WPO Plugin', LPD_DOMAIN ),
+            'add_new'               => __( 'Add New', LPD_DOMAIN ),
+            'new_item'              => __( 'New WPO Plugin', LPD_DOMAIN ),
+            'edit_item'             => __( 'Edit WPO Plugin', LPD_DOMAIN ),
+            'update_item'           => __( 'Update WPO Plugin', LPD_DOMAIN ),
+            'view_item'             => __( 'View WPO Plugin', LPD_DOMAIN ),
+            'view_items'            => __( 'View WPO Plugins', LPD_DOMAIN ),
+            'search_items'          => __( 'Search WPO Plugin', LPD_DOMAIN ),
+            'not_found'             => __( 'Not found', LPD_DOMAIN ),
+            'not_found_in_trash'    => __( 'Not found in Trash', LPD_DOMAIN ),
+            'featured_image'        => __( 'WPO Plugin Icon', LPD_DOMAIN ),
+            'set_featured_image'    => __( 'Set WPO plugin icon', LPD_DOMAIN ),
+            'remove_featured_image' => __( 'Remove WPO plugin icon', LPD_DOMAIN ),
+            'use_featured_image'    => __( 'Use as WPO plugin icon', LPD_DOMAIN ),
+            'insert_into_item'      => __( 'Insert into item', LPD_DOMAIN ),
+            'uploaded_to_this_item' => __( 'Uploaded to this WPO plugin', LPD_DOMAIN ),
+            'items_list'            => __( 'WPO Plugins list', LPD_DOMAIN ),
+            'items_list_navigation' => __( 'WPO Plugins list navigation', LPD_DOMAIN ),
+            'filter_items_list'     => __( 'Filter WPO plugins list', LPD_DOMAIN ),
         );
         $args = array(
-            'label'                 => __( 'WPO Plugin', 'list-plugin-details' ),
+            'label'                 => __( 'WPO Plugin', LPD_DOMAIN ),
             'labels'                => $labels,
             'supports'              => array( 'title', 'thumbnail', 'page-attributes' ),
             'taxonomies'            => array( '' ),
@@ -297,7 +300,7 @@ class LPD_Custom_Post_Types {
         global $post_type;
 
         if( is_admin() && 'wpo_plugin' == $post_type )
-            return __( 'Enter plugin SLUG here (identical as on wordpress.org) ', 'list-plugin-details' );
+            return __( 'Enter plugin SLUG here (identical as on wordpress.org) ', LPD_DOMAIN );
 
         return $input;
 
