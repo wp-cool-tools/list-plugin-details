@@ -4,7 +4,7 @@
 * Tags: plugin, wordpress.org, list, details
 * Requires at least: 5.0
 * Tested up to: 5.8
-* Stable tag: 1.0.1
+* Stable tag: 1.0.2
 * Requires PHP: 7.3
 * License: GPLv3
 * License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -59,9 +59,12 @@ By default, this option is not enabled. You need to actively decide to display t
 * Depending on the number of plugins you want to get the details from, it takes a second to retrieve and show the results. Not sure if this is an issue, but it can definitely be improved in the future.
 
 == Changelog ==
+= 1.0.2 =
+* Fixed deprecated message
+* Tested with WordPress 5.8
+
 = 1.0.1 =
 * Small improvements
-* Tested with WordPress 5.8
 
 = 1.0.0 =
 * Very first version with very cool features

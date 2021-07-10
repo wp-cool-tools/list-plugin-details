@@ -58,11 +58,7 @@ class LPD_Shortcode_wpo_plugin {
 
     }
 
-    public function shortcode_wpo_plugin_showcase( $atts ): string {
-        $a = shortcode_atts( array(
-                                 'foo' => 'something',
-                                 'bar' => 'something else',
-                             ), $atts );
+    public static function shortcode_wpo_plugin_showcase( $atts ): string {
 
         $data = new LPD_Retrieve_Data();
         ob_start();
