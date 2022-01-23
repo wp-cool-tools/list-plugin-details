@@ -3,7 +3,7 @@
 * Donate link: https://www.paypal.com/donate?hosted_button_id=NSEQX73VHXKS8
 * Tags: plugin, wordpress.org, list, details
 * Requires at least: 5.0
-* Tested up to: 5.8
+* Tested up to: 5.9
 * Stable tag: 1.0.2
 * Requires PHP: 7.3
 * License: GPLv3
