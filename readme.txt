@@ -20,6 +20,8 @@ IMPORTANT NOTE: List Plugin Details is just providing the technical structure to
 == Demo ==
 If you want to see first how List Plugin Details works, please check out our own <a href="https://www.kybernetik-services.com/plugins/free/?utm_source=wordpress_org&utm_medium=plugin&utm_campaign=list-plugin-details&utm_content=demo" target="_blank">demo page</a>.
 
+Or, try it out on your free dummy site and [click here](https://demo.tastewp.com/list-plugin-details).
+
 == Installation ==
 Upload the files to your server and put it in your folder /plugins/.
 Activate the plugin, enter the API key and check the settings page.
