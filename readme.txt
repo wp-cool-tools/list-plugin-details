@@ -3,7 +3,7 @@
 * Donate link: https://www.paypal.com/donate?hosted_button_id=NSEQX73VHXKS8
 * Tags: plugin, wordpress.org, list, details
 * Requires at least: 5.0
-* Tested up to: 6.5
+* Tested up to: 6.6
 * Stable tag: 1.0.2
 * Requires PHP: 7.3
 * License: GPLv3
@@ -13,7 +13,7 @@ This tiny plugin lists selected plugin details which are provided on wordpress.o
 
 == Description ==
 Whether you are a plugin developer or you want to show a list of several plugins. List Plugin Details retrieves details from wordpress.org like downloads, rating and number of reviews and shows them in cards. You will find a huge number of settings to transform the list into your list.
-Just add a shortcode on the page you want and enjoy the plugin list.
+Add a shortcode on the page you want and enjoy the plugin list.
 
 IMPORTANT NOTE: List Plugin Details is just providing the technical structure to show the retrieved details on your website. This plugin does not come with any style. So, it is important for you to add your own classes and/or to write some CSS to show your individual list. You have also the possibility to modify the showcase template and transform it to your needs.
 
@@ -30,7 +30,7 @@ Activate the plugin, enter the API key and check the settings page.
 
 = How can I add the list to my page? =
 
-Just add the shortcode [wpo_plugin_showcase] to your page or post.
+Add the shortcode [wpo_plugin_showcase] to your page or post.
 
 = Is the showcase ready for Gutenberg? =
 
@@ -46,7 +46,7 @@ No. List Plugin Details lists the  public details of any plugin which is availab
 
 = Does List Plugin Details provides several layouts? =
 
-No. List Plugin Details is just providing the technical structure for the list. It doesn't come with a style. But you have the option to add your own classes to the tags to make the list to your list.
+No. List Plugin Details is just providing the technical structure for the list. It doesn't come with a style. But you can add your own classes to the tags to make the list to your list.
 
 = Why do you call dependencies from shields.io? =
 
@@ -63,7 +63,7 @@ By default, this option is not enabled. You need to actively decide to display t
 == Changelog ==
 = 1.0.2 =
 * Fixed deprecated message
-* Tested up to WordPress 6.3
+* Tested up to WordPress 6.3-6.6
 
 = 1.0.1 =
 * Small improvements
