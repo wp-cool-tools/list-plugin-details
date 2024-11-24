@@ -3,7 +3,7 @@
 * Donate link: https://www.paypal.com/donate?hosted_button_id=NSEQX73VHXKS8
 * Tags: plugin, wordpress.org, list, details
 * Requires at least: 5.0
-* Tested up to: 6.6
+* Tested up to: 6.7
 * Stable tag: 1.0.2
 * Requires PHP: 7.3
 * License: GPLv3
@@ -63,7 +63,7 @@ By default, this option is not enabled. You need to actively decide to display t
 == Changelog ==
 = 1.0.2 =
 * Fixed deprecated message
-* Tested up to WordPress 6.3-6.6
+* Tested up to WordPress 6.3-6.7
 
 = 1.0.1 =
 * Small improvements
